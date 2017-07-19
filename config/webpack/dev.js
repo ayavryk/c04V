@@ -93,16 +93,13 @@ var config = {
   plugins: [
     new CheckerPlugin(),
     new webpack.LoaderOptionsPlugin({
-      debug: true,
+      debug: false,
       options: {
         tslint: {
-          failOnHint: true
+          failOnHint: false
         },
         postcss: function () {
           return [
-            stylelint({
-              files: '../../src/app/*.css'
-            }),
             postcssNext(),
             postcssAssets({
               relative: true

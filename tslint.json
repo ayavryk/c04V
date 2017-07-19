@@ -8,6 +8,7 @@
       true,
       "spaces"
     ],
+    "jsx-no-lambda": false,
     "quotemark": [
       true,
       "single",
@@ -15,6 +16,8 @@
     ],
     "no-var-requires": false,
     "ordered-imports": false,
+    "prefer-for-of": false,
+    "arrow-parens": false,
     "member-ordering": [
       false
     ],

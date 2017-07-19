@@ -1,0 +1,24 @@
+:global html, :global body {
+   margin:0;
+   padding:0;
+   font-family: Arial, Helvetica, sans-serif;
+   height:100%;
+}
+:global .editWrapper {
+    max-width:1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+    min-width:600px;
+} 
+:global .hidden {
+    display:none !important;
+} 
+:global .fa {
+    color:#555;
+    text-shadow: 1px 1px 3px #fff;
+
+} 
+:global #root {
+    height:100%;
+}
