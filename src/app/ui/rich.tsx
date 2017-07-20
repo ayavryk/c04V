@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { config as appConfig } from 'lib/appConfig';
+declare const appConfig;
 
 interface IRichProps {
     activate?: any;

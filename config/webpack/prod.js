@@ -159,6 +159,15 @@ const createIfDoesntExist = dest => {
 
 createIfDoesntExist('./build');
 createIfDoesntExist('./build/public');
-copySync('./src/favicon.ico', './build/public/favicon.ico', true);
+
+fs.createReadStream('./src/index.html')
+  .pipe(fs.createWriteStream('./build/index.html'));
+const ncp = require("ncp").ncp;
+ncp('./src/resource', './build/public', function (err) {
+    if (err) {
+        return console.error(err);
+    }
+    console.log("resource copy prod");
+});
 
 module.exports = config;

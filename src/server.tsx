@@ -10,11 +10,6 @@ const Chalk = require('chalk');
 const favicon = require('serve-favicon');
 const app = express();
 
-const fs = require('fs');
-fs
-  .createReadStream(path.join(__dirname, '../src/index.html'))
-  .pipe(fs.createWriteStream(path.join(__dirname, 'index.html')));
-
 app.use(compression());
 
 if (process.env.NODE_ENV !== 'production') {
