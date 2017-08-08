@@ -1,0 +1,26 @@
+
+
+.notify {
+    width:12em;
+    text-align:center;
+    left:50%;
+    margin-left:-6em;
+    position:fixed;
+    box-sizing: border-box;
+    height: 2em;
+    line-height:2em;
+    display:inline-block;
+    background: #444;
+    padding:0 1em;
+    color:#fff;
+    border: solid 1px #aaa;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top:-2em;
+    transition: top 0.5s;
+}
+
+.show {
+    top:-1px;
+} 

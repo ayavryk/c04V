@@ -52,4 +52,4 @@ class FormCell extends React.Component < any, any > {
     }
 };
 
-export {  FormCell }
+export { FormCell }

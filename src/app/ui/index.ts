@@ -8,7 +8,7 @@ import { Modal } from './modal';
 import { Mult } from './mult';
 import { Rich } from './rich';
 import { FormCell } from './formCell';
-
+// import { Form } from './formWrapper';
 import Dialog from './dialog';
 
 import { Loading } from './loading';
@@ -23,6 +23,7 @@ export {
   CheckBox as Check,
   CheckBox,
   FormCell,
+//  Form,
   Modal,
   Dialog,
   Rich,

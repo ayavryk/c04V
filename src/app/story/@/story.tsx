@@ -5,16 +5,19 @@ import '../';
 const style = require('./story.css');
 
 class Story extends React.Component<any, {}> {
-  public state = { index: 0 };
+  public state = { index: 1 };
   constructor(props) {
     super(props);
-    this.state = { index: 0 };
+    this.state = { index: 1 };
   }
 
   public menu = () => {
     return stories.map( (item, index) => {
-      const setCurrent = () => this.setState({index});
-      return  (<div key={index} className={style.link} onClick={setCurrent}>{item.title}</div>);
+      const className = style.link
+        + (this.state.index === index ? ' ' + style.active : '')
+        + (!item.component ? ' ' + style.header : '');
+      const click = item.component ? {onClick: (() => this.setState({index}))} : {};
+      return  (<div key={index} className={className} {...click}>{item.title}</div>);
     });
   }
 
@@ -25,7 +28,8 @@ class Story extends React.Component<any, {}> {
           {this.menu()}
         </div>
         <div  className={style.components}>
-          {stories[this.state.index].component}                 
+          <h1>{stories[this.state.index].title}</h1>
+          {stories[this.state.index].component && stories[this.state.index].component}                 
         </div>
       </div>);
   }
