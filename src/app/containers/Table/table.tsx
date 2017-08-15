@@ -12,8 +12,7 @@ import CTableControl from 'components/CTableControl/cTableControl';
 import configLoader from '../ConfigLoader/configLoader';
 import { getRoute } from 'lib/path';
 import { Loading } from 'ui/loading';
-
-import { config as appConfig } from 'lib/appConfig';
+declare var appConfig: any;
 
 interface ITablePops {
     routeParams: any;
