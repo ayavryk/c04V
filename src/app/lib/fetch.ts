@@ -1,5 +1,5 @@
 require('isomorphic-fetch');
-import { config as appConfig } from 'lib/appConfig';
+declare var appConfig: any;
 
 export function fGet(url: string, params?: any) {
 
@@ -37,19 +37,16 @@ export function fDGet(url: string, params?: any) {
     }
 
     return (dispatch) => {
-        return fetch(getUrl, postParams)
+        return fetch(getUrl)
           .then((res) => {
-              if (res.ok) {
-                  return res.json()
+             if (res.ok) {
+                return res.json()
                 .then( (res) => {
                     return dispatch(params.success(res));
                 });
-              } else {
-                  return res.json()
-                  .then((res) => {
-                      return dispatch(params.error(res));
-                  });
-              }
+            } else {
+                 dispatch(params.error());
+            }
           })
           .catch((err) => {
               dispatch(params.error(err));

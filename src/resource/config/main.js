@@ -1,7 +1,8 @@
 var appConfig = {
-            "host":"http://c04.new",
-            "configPath": "/config/{controller}/{method}.json",
-            "server" : "http://c04.new/admin04/main", 
+            "head":"Demo", // то что отображается в title
+            "host":"http://v4.cpsy.ru",
+            "configPath": "/public/config/{controller}/{method}.json",
+            "server" : "http://v4.cpsy.ru/admin04/main", 
             "editorPath": "/public/tiny/index.html",
             "homePage": "table/text",
             "menu": [

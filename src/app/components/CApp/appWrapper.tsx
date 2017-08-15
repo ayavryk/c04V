@@ -3,11 +3,11 @@ import MainMenu from './mainMenu';
 import Menu from './menu';
 const css = require('./appWrapper.css');
 
-export default class AppWrapper extends React.Component < any, any > {
+class AppWrapper extends React.Component < any, any > {
 
     public state = {
         ext: false,
-        additionPoint: null
+        additionPoint: null,
     };
 
     public extMenuShow = () => this.setState({ ext: true });
@@ -16,12 +16,12 @@ export default class AppWrapper extends React.Component < any, any > {
         if (this.state.ext) {
             this.setState({ ext: false });
         }
-    };
+    }
 
     public choicePoint(additionPoint) {
         this.setState({
             additionPoint,
-            ext: false
+            ext: false,
         });
 
     }
@@ -47,3 +47,5 @@ export default class AppWrapper extends React.Component < any, any > {
         );
     }
 }
+
+export default AppWrapper;

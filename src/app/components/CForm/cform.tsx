@@ -2,15 +2,14 @@ import * as React from 'react';
 import { FormCell } from 'ui';
 const css = require('ui/css/form.css');
 
-export default class CForm extends React.Component < any, any > {
-
+class CForm extends React.Component < any, any > {
 
     constructor(props) {
         super(props);
     }
 
     public state = {
-        activeLine: -1
+        activeLine: -1,
     };
 
     public parseLine(line, lineIndex) {
@@ -55,7 +54,7 @@ export default class CForm extends React.Component < any, any > {
 
             return (
                 <div style={{ zIndex }} className={css.line} key={index}>
-                    {this.parseLine(line,index)}
+                    {this.parseLine(line, index)}
                 </div>
             );
         };
@@ -77,3 +76,5 @@ export default class CForm extends React.Component < any, any > {
         );
     }
 };
+
+export { CForm };

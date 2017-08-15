@@ -1,33 +1,27 @@
 import * as React from 'react';
 import { stories } from './@/stories';
-import { FormCell } from 'ui';
+import { CForm } from 'components/CForm/cform';
+import { cFormData } from './data/cFormData';
+import { clone } from 'lib/clone';
 
-const log = () => console.log('OK!');
+class CFormExample extends React.Component <any, any> {
+        constructor(props) {
+        super(props);
+        this.state = clone(cFormData.data);
+    }
 
-const textAreaParams = {
-    label: 'textarea',
-    name: 'textarea',
-    onChange: log,
-    placeholder: 'textarea',
-    type: 'text',
-    value: 'textarea example',
-};
+    public update = (e) => {
+        const data = {};
+        data[e.field] = e.value;
+        this.setState(data);
+    }
 
-const textParams = {
-    label: 'text',
-    name: 'text',
-    onChange: log,
-    placeholder: 'text',
-    type: 'input',
-    value: 'text example',
-};
-
-const form = (<div>
-    <FormCell {...textAreaParams}/>
-    <FormCell {...textParams}/>
-</div>);
+    public render() {
+        return (<CForm actions={{update: this.update}} config={this.props.config} data={this.state}  />);
+    }
+}
 
 stories.push({
-    title: 'FormCell',
-    component: form,
+    title: 'CForm',
+    component: <CFormExample {...cFormData} />,
 });

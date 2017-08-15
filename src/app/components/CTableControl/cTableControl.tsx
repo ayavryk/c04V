@@ -7,9 +7,7 @@ import FilterControls from './filterControls';
 import GroupButton from './groupButton';
 const css = require('./filter.css');
 
-
-
-export default class CTableControl extends React.Component < any, any > {
+class CTableControl extends React.Component < any, any > {
 
     private groupCommand = null;
 
@@ -48,3 +46,5 @@ export default class CTableControl extends React.Component < any, any > {
         );
     }
 };
+
+export default CTableControl;

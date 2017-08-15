@@ -1,4 +1,4 @@
-import { fGet } from '../lib/';
+import { fGet } from './fetch';
 declare var configPath: any;
 
 const config: any = {};

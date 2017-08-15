@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Modal, IModalDialogButton } from './modal';
-import { clone } from 'lib';
+import { clone } from 'lib/clone';
 
 interface IDialogState {
     buttons?: IModalDialogButton[];

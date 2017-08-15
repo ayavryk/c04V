@@ -1,12 +1,10 @@
 import * as React from 'react';
-
 import defaultConfig from './filterDefaultConfig';
 import { Select, AutoComplete } from 'ui';
-import {getRoute} from 'lib';
+import { getRoute } from 'lib/path';
 const css = require('./filter.css');
 
-export default class FilterControls extends React.Component < any, any > {
-
+class FilterControls extends React.Component < any, any > {
 
     public onChange(e) {
         this.props.onChange(e);
@@ -16,13 +14,13 @@ export default class FilterControls extends React.Component < any, any > {
 
         const path = getRoute();
         const func = ($item, key) => {
-            const item = Object.assign({},$item);
+            const item = Object.assign({}, $item);
             if (item.src && typeof(item.src) === 'string' ) {
-                item.src = item.src.replace('{method}',path.method);
+                item.src = item.src.replace('{method}', path.method);
             }
             const props =  {
                 value: this.props.filter[item.name] || '',
-                onChange : this.onChange.bind(this)
+                onChange : this.onChange.bind(this),
             };
             return (
                 <div key={key} className={css.cell + ' ' + (item.flex ? css.full : '')}>
@@ -34,9 +32,10 @@ export default class FilterControls extends React.Component < any, any > {
         const config = this.props.config.filters || defaultConfig;
         return (
                  <div className={css.ctrlWrapper}>
-                    {config.map(func,this)}
+                    {config.map(func, this)}
                 </div>
         );
     }
 }
 
+export default FilterControls;

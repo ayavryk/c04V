@@ -4,7 +4,7 @@ import AppNotify from './appNotify';
 import Dialog from 'ui/dialog';
 const css = require('./appNotify.css');
 
-export default class AppServerMessages extends React.Component < any, any > {
+class AppServerMessages extends React.Component < any, any > {
 
     private notify;
     private message;
@@ -14,8 +14,8 @@ export default class AppServerMessages extends React.Component < any, any > {
             title: ' ',
             text:  <div dangerouslySetInnerHTML ={{ __html: message }} / >,
             buttons: [
-              { name: 'OK', type: 'secondary' }
-            ]
+              { name: 'OK', type: 'secondary' },
+            ],
         });
     }
 
@@ -43,7 +43,7 @@ export default class AppServerMessages extends React.Component < any, any > {
     public show(message) {
         this.setState({
             message,
-            className: css.show
+            className: css.show,
         });
         setTimeout(() => this.setState({ className: '' }), 1000);
     }
@@ -57,3 +57,5 @@ export default class AppServerMessages extends React.Component < any, any > {
         );
     }
 }
+
+export default AppServerMessages;

@@ -1,4 +1,4 @@
-export default function clone(obj) {
+export function clone(obj) {
     if (obj === null || typeof obj !== 'object') {
         return obj;
     }

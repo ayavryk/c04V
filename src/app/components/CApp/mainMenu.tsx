@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { hashHistory, Link } from 'react-router';
 import Dialog from 'ui/dialog';
-import { config as appConfig } from 'lib/appConfig';
+declare var appConfig: any;
 
 const css = require('./mainMenu.css');
 
-export default class MainMenu extends React.Component<any, any> {
+class MainMenu extends React.Component<any, any> {
 
     public confirm = null;
 
@@ -22,8 +22,8 @@ export default class MainMenu extends React.Component<any, any> {
             text: 'Вы внесли изменения в данные. Выйти без сохранения?',
             buttons: [
               { icon: 'cancel', name: 'Не сохранять', onClick: gogo },
-              { icon: 'default', name: 'Остаться' }
-            ]
+              { icon: 'default', name: 'Остаться' },
+            ],
         });
         e.preventDefault();
     }
@@ -38,7 +38,7 @@ export default class MainMenu extends React.Component<any, any> {
             const className = active + ' ' + css.item + ' ';
             return (
               <Link
-                onClick = {e => this.jump(e,item)}
+                onClick = {e => this.jump(e, item)}
                 key={index}
                 className={className}
                 to={item.route}
@@ -65,3 +65,5 @@ export default class MainMenu extends React.Component<any, any> {
         );
     }
 };
+
+export default MainMenu;

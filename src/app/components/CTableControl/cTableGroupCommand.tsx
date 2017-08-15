@@ -1,12 +1,12 @@
 import * as React from 'react';
 import CTable from '../CTable/ctable';
-import CForm from '../CForm/cform';
+import { CForm } from '../CForm/cform';
 import Dialog from 'ui/dialog';
-import { getRoute } from 'lib';
+import { getRoute } from 'lib/path';
 const css = require('./filter.css');
-import { config as appConfig } from 'lib/appConfig';
+declare var appConfig: any;
 
-export default class CTableGroupCommand extends React.Component < any, any > {
+class CTableGroupCommand extends React.Component < any, any > {
 
     private groupDialog = null;
     private confirmCommand = null;
@@ -16,7 +16,6 @@ export default class CTableGroupCommand extends React.Component < any, any > {
 
     constructor(props) {
         super(props);
-
     }
 
     public groupCommand() {
@@ -31,12 +30,12 @@ export default class CTableGroupCommand extends React.Component < any, any > {
             code: this.item.code,
             data: this.state.data,
             value,
-            ids
+            ids,
         };
         const params = {
             controller: 'command',
             method: route.method,
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
         };
         this.props.actions.sendData(appConfig.server, params);
     }
@@ -49,8 +48,8 @@ export default class CTableGroupCommand extends React.Component < any, any > {
             text: item.confirm,
             buttons: [
                 { name: item.name, onClick : this.groupCommand.bind(this) },
-                { name: 'Отменить?', type: 'secondary' }
-            ]
+                { name: 'Отменить?', type: 'secondary' },
+            ],
         });
     }
 
@@ -71,8 +70,8 @@ export default class CTableGroupCommand extends React.Component < any, any > {
             title: item.name + '?',
             buttons: [
                 { name: item.name, onClick : item.confirm ? this.confirm.bind(this) : this.groupCommand.bind(this) },
-                { name: 'Отменить?', type: 'secondary' }
-            ]
+                { name: 'Отменить?', type: 'secondary' },
+            ],
         });
     }
 
@@ -81,7 +80,7 @@ export default class CTableGroupCommand extends React.Component < any, any > {
             className: css.groupForm,
             actions: {update: this.formAction.bind(this)},
             config: this.state.form,
-            data: this.state.data
+            data: this.state.data,
         };
         return (
             <div>
@@ -98,3 +97,5 @@ export default class CTableGroupCommand extends React.Component < any, any > {
         );
     }
 };
+
+export default CTableGroupCommand;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button} from '../../ui';
 const css = require('./filter.css');
 
-export default class GroupButton extends React.Component < any, any > {
+class GroupButton extends React.Component < any, any > {
     public render() {
         const config = this.props.config;
         if (!config.group) {
@@ -13,11 +13,11 @@ export default class GroupButton extends React.Component < any, any > {
             this.props.groupClick(item);
         };
         click = click.bind(this);
-        const list = config.group.map((item,key) => {
+        const list = config.group.map((item, key) => {
             return (<div key = {key} onClick={() => click(item)}>
                 {item.name}
             </div>);
-        },this);
+        }, this);
         const className = css.selectedBtn + (disabled ? ' ' + css.disabled : '');
         return (
             <Button disabled={disabled} className={className} label="Операция с выделенными строками">
@@ -29,3 +29,5 @@ export default class GroupButton extends React.Component < any, any > {
         );
     }
 }
+
+export default GroupButton;

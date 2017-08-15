@@ -1,16 +1,15 @@
 import * as React from 'react';
 import CTable from '../CTable/ctable';
 import Dialog from 'ui/dialog';
-import { getRoute } from 'lib';
-import { config as appConfig } from 'lib/appConfig';
+import { getRoute } from 'lib/path';
+declare var appConfig: any;
 
-export default class CTableCommand extends React.Component < any, any > {
+class CTableCommand extends React.Component < any, any > {
 
     private confirmCommand = null;
- 
+
     public form = null;
     public item = null;
- 
 
     constructor(props) {
         super(props);
@@ -22,12 +21,12 @@ export default class CTableCommand extends React.Component < any, any > {
         const data = {
             field: field.field || '',
             code: field.command,
-            ids
+            ids,
         };
         const params = {
             controller: 'command',
             method: route.method,
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
         };
         this.props.actions.sendData(appConfig.server, params);
     }
@@ -40,8 +39,8 @@ export default class CTableCommand extends React.Component < any, any > {
             text: item.confirm,
             buttons: [
                 { name: item.name, onClick : this.send.bind(this) },
-                { name: 'Отменить?', type: 'secondary' }
-            ]
+                { name: 'Отменить?', type: 'secondary' },
+            ],
         });
     }
 
@@ -59,8 +58,8 @@ export default class CTableCommand extends React.Component < any, any > {
                 text: '#' + item.id + ': ' + item.name,
                 buttons: [
                     { name: field.title, onClick : ok },
-                    { name: 'Отменить?', type: 'secondary' }
-                ]
+                    { name: 'Отменить?', type: 'secondary' },
+                ],
             });
             return;
         }   else {
@@ -80,3 +79,5 @@ export default class CTableCommand extends React.Component < any, any > {
         );
     }
 };
+
+export default CTableCommand;

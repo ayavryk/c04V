@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 const css = require('./menu.css');
+declare var appConfig: any;
 
-import { config as appConfig } from 'lib/appConfig';
-
-export default class Menu extends React.Component<any, any> {
+class Menu extends React.Component<any, any> {
 
     public confirm = null;
 
@@ -29,7 +28,7 @@ export default class Menu extends React.Component<any, any> {
                          </i>
                     </Link>
                 );
-            }  
+            }
             return (<div>no head, no route :(</div>);
         }, this);
         return res;
@@ -43,3 +42,5 @@ export default class Menu extends React.Component<any, any> {
         );
     }
 };
+
+export default Menu;

@@ -1,4 +1,4 @@
-const appConfig = require('../../../../config/main');
+declare var appConfig: any;
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
@@ -10,7 +10,9 @@ class App extends React.Component<any, any> {
   public render() {
     return (
       <section className={style.AppContainer}>
-        <Helmet {...appConfig.app} {...appConfig.app.head}/>
+          <Helmet>
+            <title>{appConfig.head}</title>
+          </Helmet>
         <Header />
         {this.props.children}
       </section>

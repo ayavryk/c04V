@@ -1,17 +1,17 @@
 import * as React from 'react';
 const css = require('./appNotify.css');
 
-export default class AppNotify extends React.Component < any, any > {
+class AppNotify extends React.Component < any, any > {
 
     public state = {
         message: '',
-        className: ''
+        className: '',
     };
 
     public show(message) {
         this.setState({
             message,
-            className: css.show
+            className: css.show,
         });
         setTimeout(() => this.setState({ className: '' }), 1000);
     }
@@ -24,3 +24,5 @@ export default class AppNotify extends React.Component < any, any > {
         );
     }
 }
+
+export default AppNotify;

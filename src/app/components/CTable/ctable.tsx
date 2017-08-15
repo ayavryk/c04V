@@ -3,8 +3,7 @@ const css = require('./ctable.css');
 import {Link} from 'react-router';
 import {Check} from 'ui';
 
-export default class CTable extends React.Component < any, any > {
-
+class CTable extends React.Component < any, any > {
 
     public group = true;
     public singleCommand;
@@ -12,7 +11,7 @@ export default class CTable extends React.Component < any, any > {
     public constructor(params) {
         super(params);
         this.state = {
-            checkedAll: 0
+            checkedAll: 0,
         };
     }
 
@@ -22,8 +21,6 @@ export default class CTable extends React.Component < any, any > {
     };
 
     public checked = e => this.props.actions.check(e);
-
-
 
     // метод для вывода полной таблицы или урезанной таблицы для групповых операциq (props.short === true)
     public getIems() {
@@ -88,7 +85,7 @@ export default class CTable extends React.Component < any, any > {
             );
         }
         const link = field.link || field.elink;
-        return link ? <Link className={css.link} to={link.replace('{id}',id)}>{content}</Link> : content;
+        return link ? <Link className={css.link} to={link.replace('{id}', id)}>{content}</Link> : content;
     }
 
     public renderLine(item, index) {
@@ -101,11 +98,11 @@ export default class CTable extends React.Component < any, any > {
             const commands = (!field.command) ? {} :
             {
                 className: css.iconCell,
-                onClick: () => this.props.singleCommand(item, field)
+                onClick: () => this.props.singleCommand(item, field),
             };
             return (
                 <td  {...style} key={key} {...commands}>
-                    <div className={css.cell}>{this.renderCell(item,field)}</div>
+                    <div className={css.cell}>{this.renderCell(item, field)}</div>
                 </td>
             );
         };
@@ -122,7 +119,7 @@ export default class CTable extends React.Component < any, any > {
             return (
             <tr className={className} key={index}>
                 {this.group && !this.props.short && check}
-                {this.renderLine(item,index)}
+                {this.renderLine(item, index)}
             </tr>);
         };
         let data = this.props.data;
@@ -131,10 +128,6 @@ export default class CTable extends React.Component < any, any > {
         }
         return data.map(render.bind(this));
     }
-
-
-
-
 
     public render() {
         console.log(this.props);
@@ -150,3 +143,5 @@ export default class CTable extends React.Component < any, any > {
         );
     }
 };
+
+export default CTable;

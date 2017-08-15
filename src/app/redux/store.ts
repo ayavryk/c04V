@@ -1,4 +1,4 @@
-const appConfig = require('../../../config/main');
+declare var appConfig: any;
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';

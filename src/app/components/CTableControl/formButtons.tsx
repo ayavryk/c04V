@@ -3,9 +3,7 @@ import * as React from 'react';
 import { Button} from 'ui';
 // const css = require('./css/button.css');
 
-
-export default class FormButtons extends React.Component < any, any > {
-
+class FormButtons extends React.Component < any, any > {
 
     public render() {
 
@@ -20,3 +18,4 @@ export default class FormButtons extends React.Component < any, any > {
     }
 };
 // className = {css.form_buttons}
+export default FormButtons;

@@ -4,6 +4,6 @@ export default[
         type : 'autocomplete',
         placeholder : 'строка поиска',
         name : 'query',
-        src : '{server}?method={method}&controller=suggest&query='
-    }
+        src : '{server}?method={method}&controller=suggest&query=',
+    },
 ];
