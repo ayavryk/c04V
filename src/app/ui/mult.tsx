@@ -12,7 +12,7 @@ interface IMultProps {
     config?: any; // TODO добавить интерфейс
     value?: any[];
     className?: string;
-    type: string;
+    type?: string;
     label?: string;
 }
 

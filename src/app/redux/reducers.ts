@@ -4,6 +4,7 @@ import { counterReducer } from './modules/counter';
 import { starsReducer } from './modules/stars';
 import { config } from './modules/rConfig';
 import { edit } from './modules/rEdit';
+import { table } from './modules/rTable';
 import { IStore } from './IStore';
 
 const { reducer } = require('redux-connect');
@@ -14,6 +15,7 @@ const rootReducer: Redux.Reducer<IStore> = combineReducers<IStore>({
   stars: starsReducer,
   config,
   edit,
+  table,
   reduxAsyncConnect: reducer,
 });
 
