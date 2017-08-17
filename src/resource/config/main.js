@@ -1,8 +1,8 @@
 var appConfig = {
             "head":"Demo", // то что отображается в title
-            "host":"http://v4.cpsy.ru",
+            "host":"http://c04.new",
             "configPath": "/public/config/{controller}/{method}.json",
-            "server" : "http://v4.cpsy.ru/admin04/main", 
+            "server" : "http://c04.new/admin04/main", 
             "editorPath": "/public/tiny/index.html",
             "homePage": "table/text",
             "menu": [
@@ -11,21 +11,21 @@ var appConfig = {
                 },
                 {   "main": true, 
                     "title": "Авторы",
-                    "route": "table/author"
+                    "route": "/table/author"
                 },
                 {   "main": true,
                     "title": "Цитаты",
-                    "route": "table/text"
+                    "route": "/table/text"
                 },    
                 {   "main": true,
                     "title": "Теги",
-                    "route": "table/tags"
+                    "route": "/table/tags"
                 },{
                     "head":"Административное"
                 },    
                 {
                     "title": "Пользователи",
-                    "route": "table/users"
+                    "route": "/table/users"
                 },                   
                 {
                     "title": "ConfigBuilder",
@@ -35,33 +35,33 @@ var appConfig = {
                 },    
                 {
                     "title": "Страны",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }, 
                 {
                     "title": "Города",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }, 
                 {
                     "title": "Организации",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }, {
                     "head":"Новости, реклама"
                 },    
                 {
                     "title": "Рассылки",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }, 
                 {
                     "title": "Новости",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }, 
                 {
                     "title": "Города",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }, 
                 {
                     "title": "Организации",
-                    "route": "table/users"
+                    "route": "/table/users"
                 }
             ]
 }
