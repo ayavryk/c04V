@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { Button } from 'ui';
 import CTableGroupCommand from './cTableGroupCommand';
 import FilterButtons from './filterButtons';
@@ -16,7 +17,7 @@ class CTableControl extends React.Component < any, any > {
     }
 
     public createNewItem = () => {
-        hashHistory.push(`/edit/${this.props.route}'/0'`);
+        browserHistory.push(`/edit/${this.props.route}/0`);
     }
 
     public groupClick(item) {

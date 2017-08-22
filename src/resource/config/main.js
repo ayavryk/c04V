@@ -26,42 +26,20 @@ var appConfig = {
                 {
                     "title": "Пользователи",
                     "route": "/table/users"
-                },                   
+                },    
+                {
+                    "title": "Служебные_тексты",
+                    "route": "/table/service_texts"
+                },{
+                    "head":"Отладка"
+                },                       
                 {
                     "title": "ConfigBuilder",
-                    "route": "configBuilder"
-                },  {
-                    "head":"Справочники"
-                },    
+                    "route": "/configBuilder"
+                },   
                 {
-                    "title": "Страны",
-                    "route": "/table/users"
-                }, 
-                {
-                    "title": "Города",
-                    "route": "/table/users"
-                }, 
-                {
-                    "title": "Организации",
-                    "route": "/table/users"
-                }, {
-                    "head":"Новости, реклама"
-                },    
-                {
-                    "title": "Рассылки",
-                    "route": "/table/users"
-                }, 
-                {
-                    "title": "Новости",
-                    "route": "/table/users"
-                }, 
-                {
-                    "title": "Города",
-                    "route": "/table/users"
-                }, 
-                {
-                    "title": "Организации",
-                    "route": "/table/users"
+                    "title": "Components",
+                    "route": "/story"
                 }
             ]
 }

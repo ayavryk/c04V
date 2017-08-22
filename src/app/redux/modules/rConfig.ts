@@ -13,12 +13,12 @@ export const MESSAGE = 'CMESSAGE';
 // INITIAL_STATE
 // =============================================================================================
 
-interface IData {
+export interface IConfig {
     config: any;
     url: any;
 }
 
-const INITIAL_STATE: IData = {
+const INITIAL_STATE: IConfig = {
     config: null,
     url: null,
 };
@@ -27,7 +27,7 @@ const INITIAL_STATE: IData = {
 // REDUSER
 // =============================================================================================
 
-export function config(state: IData = INITIAL_STATE, action) {
+export function config(state: IConfig = INITIAL_STATE, action) {
     switch (action.type) {
         case CSET:
             return action.data ? action.data : INITIAL_STATE;

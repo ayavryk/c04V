@@ -1,8 +1,11 @@
-import { ICounter } from 'models/counter';
-import { IStars } from 'models/stars';
+import {IEdit} from './modules/rEdit';
+import {IConfig} from './modules/rConfig';
+import {ITable} from './modules/rTable';
+import {ICommand} from './modules/rCommand';
 
 export interface IStore {
-  counter: ICounter;
-  stars: IStars;
-  config: any;
+  edit: IEdit;
+  config: IConfig;
+  table: ITable;
+  command: ICommand;
 };

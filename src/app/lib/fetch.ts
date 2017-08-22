@@ -37,7 +37,7 @@ export function fDGet(url: string, params?: any) {
     }
 
     return (dispatch) => {
-        return fetch(getUrl)
+        return fetch(getUrl, postParams)
           .then((res) => {
              if (res.ok) {
                 return res.json()

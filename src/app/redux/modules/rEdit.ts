@@ -18,12 +18,12 @@ export const MESSAGE = 'EDIT_MESSAGE';
 // INITIAL_STATE
 // =============================================================================================
 
-interface IData {
+export interface IEdit {
     data: any;
     isChanged: boolean;
 }
 
-const INITIAL_STATE: IData = {
+const INITIAL_STATE: IEdit = {
     data: null,
     isChanged: false,
 };
@@ -32,7 +32,7 @@ const INITIAL_STATE: IData = {
 // REDUSER
 // =============================================================================================
 
-export function edit(state: IData = INITIAL_STATE, action) {
+export function edit(state: IEdit = INITIAL_STATE, action) {
     switch (action.type) {
         case LOCATION_CHANGE:
             return INITIAL_STATE;

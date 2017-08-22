@@ -9,13 +9,13 @@ const SET = 'MSG_SET';
 // INITIAL_STATE
 // =============================================================================================
 
-interface IData {
+export interface ICommand {
     message: string;
     command: string;
     notify: string;
 };
 
-const INITIAL_STATE: IData = {
+const INITIAL_STATE: ICommand = {
     message: '',
     command: '',
     notify: '',
@@ -25,7 +25,7 @@ const INITIAL_STATE: IData = {
 // REDUSER
 // =============================================================================================
 
-export function message(state: IData = INITIAL_STATE, action) {
+export function message(state: ICommand = INITIAL_STATE, action) {
     switch (action.type) {
         case CLEAR:
             return INITIAL_STATE;

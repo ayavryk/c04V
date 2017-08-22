@@ -53,10 +53,7 @@ export default class ConfigBuilder extends React.Component<any, any> {
         });
     }
 
-    public render() {
-
-        const tables = this.renderTables();
-        const tableBody = <div className={css.forms}>
+    public tableBody = () => <div className={css.forms}>
                             <div className={css.form}>
                                 <ConfigBuilderTable
                                     head = {this.state.current}
@@ -69,14 +66,17 @@ export default class ConfigBuilder extends React.Component<any, any> {
                                     data={this.state.config[this.state.current]}
                                 />
                             </div>
-                        </div>;
+                        </div>
 
+    public render() {
+
+        const tables = this.renderTables();
         return (
             <div className={css.wrapper + ' editWrapper'}>
                 <div className={css.tables}>
                     {this.state.config && tables}
                 </div>
-                {this.state.current !== '' &&  tableBody}
+                {this.state.current !== '' &&  this.tableBody()}
             </div>
 
         );

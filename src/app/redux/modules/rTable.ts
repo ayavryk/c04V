@@ -16,13 +16,13 @@ export const MESSAGE = 'TMESSAGE';
 // INITIAL_STATE
 // =============================================================================================
 
-interface IData {
+export interface ITable {
     page: any;
     data: any;
     filter: any;
 };
 
-const INITIAL_STATE: IData = {
+const INITIAL_STATE: ITable = {
     data: null,
     filter: {
         query: '',
@@ -38,7 +38,7 @@ const INITIAL_STATE: IData = {
 // REDUSER
 // =============================================================================================
 
-export function table(state: IData = INITIAL_STATE, action) {
+export function table(state: ITable = INITIAL_STATE, action) {
     let res;
     switch (action.type) {
         case TGROUPCHECKALL:
