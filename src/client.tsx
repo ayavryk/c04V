@@ -5,7 +5,7 @@ import 'isomorphic-fetch';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-const { Router, browserHistory } = require('react-router');
+const { Router, hashHistory } = require('react-router');
 import { syncHistoryWithStore } from 'react-router-redux';
 const { ReduxAsyncConnect } = require('redux-connect');
 import { configureStore } from './app/redux/store';
@@ -13,10 +13,10 @@ import 'isomorphic-fetch';
 import routes from './app/routes';
 
 const store = configureStore(
-  browserHistory,
+  hashHistory,
   window.__INITIAL_STATE__,
 );
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 const connectedCmp = (props) => <ReduxAsyncConnect {...props} />;
 
 ReactDOM.render(

@@ -4,12 +4,27 @@ import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { IStore } from './IStore';
+import { setMessage } from './modules/rCommand';
 const createLogger = require('redux-logger');
+
+const ping = function ping(store) {
+  return function(next) {
+    return function(action) {
+      if (action.data && action.data.error &&  action.data.error  === 'auth') {
+        console.log('!!!!!!!!!!!!!!!!!!noauth!!!!!!!!!!!!!!');
+        store.dispatch(setMessage({command: 'auth'}));
+      } else {
+        return next(action);
+      }
+    };
+  };
+};
 
 export function configureStore(history, initialState?: IStore): Redux.Store<IStore> {
 
   const middlewares: Redux.Middleware[] = [
     routerMiddleware(history),
+    ping,
     thunk,
   ];
 

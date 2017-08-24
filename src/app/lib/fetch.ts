@@ -2,8 +2,13 @@ require('isomorphic-fetch');
 declare var appConfig: any;
 
 export function fGet(url: string, params?: any) {
-
-    fetch(url.replace('{server}', appConfig.server))
+    let postParams = {};
+    if (params.postParams) {
+        const data = new FormData();
+        data.append('json', JSON.stringify(params.postParams || {}));
+        postParams = { method: 'POST', body: data };
+    }
+    fetch(url.replace('{server}', appConfig.server), postParams)
       .then((res) => {
           return res.json()
             .then( (res) => {

@@ -1,5 +1,5 @@
 export const getRoute = () => {
-    const path = location.pathname.match(/^[^a-z]*([a-z_]+)\/([a-z_]+)\/*([0-9]*)/);
+    const path = location.hash.match(/^[^a-z]*([a-z_]+)\/([a-z_]+)\/*([0-9]*)/);
     if (!path || path.length < 4) {
         console.log('ERROR in getConfig path parse');
         return null;

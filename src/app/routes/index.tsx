@@ -7,7 +7,7 @@ import Table from 'containers/Table/table';
 import configBuilder from 'containers/ConfigBuilder/configBuilder';
 
 export default (
-  <Route path="/"  component={App}>
+  <Route  path="/"  component={App}>
     <IndexRoute component={Story} />
     <Route path="story" component={Story} />
     <Route path="edit/:type/:id" component={Edit} /> 

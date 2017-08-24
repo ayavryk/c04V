@@ -61,22 +61,3 @@ export function loadConfig(params) {
         error: loadError,
     });
 }
-
-/*
-export function loadConfig(params){
-  const url = appConfig.configPath.replace('{controller}', params.controller).replace('{method}', params.method);
-  return (dispatch) => {
-    return fetch(url)
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-            .then((res) => dispatch(setConfig(res)));
-        } else {
-          return res.json()
-            .then((res) => dispatch(loadError(res)));
-        }
-      })
-      .catch((err) => dispatch(loadError(err)));
-  };
-}
-*/
