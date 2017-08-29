@@ -1,6 +1,6 @@
 import * as React from 'react';
 const css = require('./cauth.css');
-declare var appConfig: any;
+// declare var appConfig: any;
 
 class CAuth extends React.Component < any, any > {
 
@@ -12,12 +12,14 @@ class CAuth extends React.Component < any, any > {
     }
 
     public auth = () => {
-        location.href = appConfig.auth.logon;
+        console.log(':(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(');
     }
     public render() {
 
         return (
-                <div className={css.cauth}>Переход на авторизацию. Пока пусть так</div>
+                <div className={css.cauth}>
+                    :(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(:(
+                </div>
         );
     }
 };

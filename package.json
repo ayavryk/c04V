@@ -4,7 +4,7 @@
   "description": "A universal boilerplate for building web applications w/ TypeScript, React, Redux and more.",
   "main": "build/server.js",
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "echo 'clean'",
     "prebuild": "npm run clean",
     "build": "webpack --config config/webpack/index.js",
     "build:prod": "cross-env NODE_ENV=production npm run build",
