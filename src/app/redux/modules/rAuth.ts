@@ -4,59 +4,53 @@ declare var appConfig: any;
 // =============================================================================================
 // CONST
 // =============================================================================================
-export const CLOADERROR = 'CLOADERROR';
-export const CSET = 'CSET';
-export const MESSAGE = 'CMESSAGE';
+
+const USER_GET = 'USER_GET';
 
 // =============================================================================================
 // INITIAL_STATE
 // =============================================================================================
 
-export interface IConfig {
-    config: any;
-    url: any;
-}
+export interface IAuth {
+    user?: string;
+};
 
-const INITIAL_STATE: IConfig = {
-    config: null,
-    url: null,
+const INITIAL_STATE: IAuth = {
+    user: '',
 };
 
 // =============================================================================================
 // REDUSER
 // =============================================================================================
 
-export function config(state: IConfig = INITIAL_STATE, action) {
+export function auth(state: IAuth = INITIAL_STATE, action) {
     switch (action.type) {
-        case CSET:
-            return action.data ? action.data : INITIAL_STATE;
+        case USER_GET:
+            if (action.data.user) {
+                return {user: action.data.user};
+            }
         default:
             return state;
     }
-}
+};
 
 // =============================================================================================
 // ACTIONS
 // =============================================================================================
 
-export function loadError() {
+export function setUserAction(data) {
     return ({
-        type: MESSAGE,
-        data: { message: 'Ошибка загрузки конфигурации'},
-    });
-}
-export function setConfig(data) {
-    return ({
-        type: CSET,
+        type: USER_GET,
         data,
     });
 }
 
-export function loadConfig(params) {
-    const url = appConfig.configPath.replace('{controller}', params.controller).replace('{method}', params.method);
-    return fDGet(url, {
-        params,
-        success: setConfig,
-        error: loadError,
+export function getAuth() {
+    return fDGet(appConfig.server, {
+        params: {
+            whois: 'whois',
+        },
+        success: setUserAction,
+        error: setUserAction,
     });
 }

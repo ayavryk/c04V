@@ -4,6 +4,7 @@ import { config } from './modules/rConfig';
 import { edit } from './modules/rEdit';
 import { table } from './modules/rTable';
 import { message } from './modules/rCommand';
+import { auth } from './modules/rAuth';
 import { IStore } from './IStore';
 
 const { reducer } = require('redux-connect');
@@ -14,6 +15,7 @@ const rootReducer: Redux.Reducer<IStore> = combineReducers<IStore>({
   edit,
   table,
   message,
+  auth,
   reduxAsyncConnect: reducer,
 });
 
