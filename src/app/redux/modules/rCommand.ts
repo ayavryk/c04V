@@ -26,13 +26,15 @@ const INITIAL_STATE: ICommand = {
 // =============================================================================================
 
 export function message(state: ICommand = INITIAL_STATE, action) {
+    let  res;
     switch (action.type) {
         case CLEAR:
             return INITIAL_STATE;
         case SET:
-            return { ...state, ...action.data };
+            res = { ...state, ...action.data };
+            return res;
         default:
-            let res = state;
+            res = state;
             if (action.data) {
                 const { command, notify, message } = action.data;
                 if (command) {

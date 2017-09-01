@@ -13,10 +13,12 @@ const USER_GET = 'USER_GET';
 
 export interface IAuth {
     user?: string;
+    command?: string;
 };
 
 const INITIAL_STATE: IAuth = {
     user: '',
+    command: '',
 };
 
 // =============================================================================================
@@ -26,9 +28,7 @@ const INITIAL_STATE: IAuth = {
 export function auth(state: IAuth = INITIAL_STATE, action) {
     switch (action.type) {
         case USER_GET:
-            if (action.data.user) {
-                return {user: action.data.user};
-            }
+            return {...state, ...action.data};
         default:
             return state;
     }
@@ -46,9 +46,10 @@ export function setUserAction(data) {
 }
 
 export function getAuth() {
-    return fDGet(appConfig.server, {
+    const url = appConfig.server;
+    return fDGet(url, {
         params: {
-            whois: 'whois',
+            whois: 'auth',
         },
         success: setUserAction,
         error: setUserAction,

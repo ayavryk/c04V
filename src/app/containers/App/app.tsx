@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { setMessage } from 'redux/modules/rCommand';
 import { setData } from 'redux/modules/rTable';
 import { getAuth } from 'redux/modules/rAuth';
-import { CAuth } from 'components/CAuth/cauth';
+import { Loading } from 'ui/loading';
 import AppServerMessages from 'components/CApp/appServerMessages';
 import AppWrapper from 'components/CApp/appWrapper';
 declare var appConfig: any;
@@ -15,16 +15,16 @@ class App extends React.Component<any, void> {
         this.props.actions.getAuth();
     }
 
-    public componentWillReceiveProps() {
-        if (this.props.command === 'auth') {
-            location.href = appConfig.auth.logon;
+    public componentWillReceiveProps(nextProps) {
+        // отправляем неавторизованного пользователя на авторизацию
+        // TODO перенести сюда авторизацию
+        if (nextProps.message.command === 'auth') {
+             location.href = appConfig.auth.logon;
         }
     }
-
     public render()  {
-        const auth = this.props.auth.user !== '';
-        if (!auth) {
-            return <CAuth redirect = {this.props.command === 'auth'}/>;
+        if (this.props.auth.user === '') {
+            return <Loading />;
         }
         return (
             <AppWrapper isChanged = {this.props.isChanged}>
